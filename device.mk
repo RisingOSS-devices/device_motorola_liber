@@ -184,6 +184,7 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.liber.perf.rc \
     init.class_main.sh \
     init.crda.sh \
     init.mdm.sh \
