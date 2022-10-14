@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2017-2020 The LineageOS Project
+# Copyright (C) 2022 RiceDroid
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from liber device
 $(call inherit-product, device/motorola/liber/device.mk)
 
-# Inherit some common Lineage stuff.
+# Inherit some common riceDroid Stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
@@ -45,3 +46,17 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="liber_retail-user 11 RPIS31.Q2-42-25-1 19a8e release-keys"
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
+
+# riceDroid Stuff with GApps
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_BUILD_GRAPHENEOS_CAMERA := false
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_SUPPORTS_QUICK_TAP := true
+SUSHI_BOOTANIMATION  := 1080
+TARGET_ENABLE_BLUR := false
+WITH_GMS := true
+RICE_CHIPSET := SD730G
+
+# Maintainer Stuff
+RICE_MAINTAINER := Lord Itachi
+RICE_OFFICIAL := true
