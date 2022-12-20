@@ -13,4 +13,7 @@
 <resources>
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">false</bool>
+
+    <!-- The CPUs to display in CPUInfoService view -->
+    <string name="config_displayCpus" translatable="false">0,1,2,3,4,5,6,7</string>
 </resources>
