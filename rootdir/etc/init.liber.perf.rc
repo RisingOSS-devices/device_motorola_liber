@@ -28,6 +28,10 @@ on early-init
     write /sys/block/dm-3/queue/read_ahead_kb 2048
     write /sys/block/dm-4/queue/read_ahead_kb 2048
 
+on boot
+    # GPU boost
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/min_pwrlevel
+
 on property:vendor.post_boot.parsed=1
     # Setup runtime cpusets
     write /dev/cpuset/top-app/cpus 0-7
