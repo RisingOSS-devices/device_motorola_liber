@@ -288,9 +288,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
     ro.vendor.perf-hal.ver=2.2 \
-    ro.vendor.perf.scroll_opt=true
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    ro.vendor.perf.scroll_opt=true \
+    ro.vendor.qspm.enable=true
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.vendor.qti.sys.fw.bg_apps_limit=60
