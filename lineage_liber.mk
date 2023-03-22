@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from liber device
 $(call inherit-product, device/motorola/liber/device.mk)
 
-# Inherit some common Lineage stuff.
+# Inherit some common Ricedroid stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
@@ -46,3 +46,41 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_PRODUCT="liber_retail"
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
+
+# Gapps
+WITH_GMS := true
+ifeq ($(WITH_GMS),true)
+$(call inherit-product, vendor/gapps/common/common-vendor.mk)
+endif
+
+# riceDroid Flags
+
+# Spoof build description/fingerprint as pixel device
+TARGET_USE_PIXEL_FINGERPRINT := true
+
+# Enable Google Recorder Functionality
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+
+# Opt out of google dialer support, compiler will build aosp dialer,
+# package type will change from PIXEL -> GMS
+TARGET_OPTOUT_GOOGLE_TELEPHONY := false
+
+# Flag for GrapheneOS Camera
+TARGET_BUILD_GRAPHENEOS_CAMERA := false
+
+# Enable Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# Enable Quick Tap Funtionality
+TARGET_SUPPORTS_QUICK_TAP := true
+
+# Enable Blur
+TARGET_ENABLE_BLUR := true
+
+# Set the correct chipset target to be shown in info
+RICE_CHIPSET := SD730
+
+# Maintainer Stuff
+RICE_MAINTAINER := Lord Itachi
+RICE_OFFICIAL := true
+

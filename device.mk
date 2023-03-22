@@ -14,8 +14,10 @@
 # limitations under the License.
 #
 
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+# Force disable updating of APEXes when flatten APEX flag is enabled
+ifeq ($(OVERRIDE_TARGET_FLATTEN_APEX),true)
+PRODUCT_PRODUCT_PROPERTIES += ro.apex.updatable=false
+endif
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/motorola/liber/liber-vendor.mk)
@@ -328,11 +330,6 @@ PRODUCT_PACKAGES += \
 # IPC router config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm \
-    vendor.lineage.livedisplay@2.0-service-sysfs.motorola_sm6150
 
 # Media
 PRODUCT_COPY_FILES += \
